@@ -1,0 +1,829 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}
+  <title>Admin Panel Main</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+<div   class="d-flex flex-column align-items-center">
+
+  <!-------------------------- Acsess Iformation Start  --------------------->
+  <div id="acsess" style="height: 100px;"></div>
+  <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  mb-2 p-2 rounded shadow-lg flex-column align-items-center" >
+      <div class="d-flex mt-2 justify-content-center">
+          <h2 >Access Information </h2>
+          
+      </div>
+
+      <div style="width: 89%;" class="d-flex justify-content-end">
+        <a class="btn btn-success " href="{{url_for('loginadd')}}">Login Add</a>
+      </div>
+
+      
+      <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
+          <thead class="table-dark text-light">
+              <tr style="text-align: center;" >
+                  <th style="width:5% ;">Id </th>
+                  <th class="w-25">Log in</th>
+                  <th style="width: 10%;" >Editing</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for info in admin %}
+              
+              
+                  <tr>
+
+                      <td> {{info.id}} </td>
+                      <td >{{info.login}}</td>
+                      <td>
+                          
+                          
+                        {% if info.id!=1 %}
+                          <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#pe5exampleModalCenter{{info.id}}">
+                              Delete
+                          </button>
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="pe5exampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Delete Warning</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                    Do you want to delete User id:{{info.id}}?
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                  <a href="{{url_for('logindelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {% endif %}
+                    </td>
+                      
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+
+  </div>
+  <!--------------------------- Acsess Iformation End ------------------------>
+
+
+
+
+
+  <!------------------------- Contact Iformation Start ------------------------>
+  <div id="contact" style="height: 100px;"></div>
+  <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  mb-2 p-2 rounded shadow-lg flex-column align-items-center" >
+        <div class="d-flex mt-2 justify-content-center">
+            <h2 >Contact Information </h2>
+            
+        </div>
+
+        
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
+            <thead class="table-dark text-light">
+                <tr style="text-align: center;" >
+                    <th style="width:5% ;">Id </th>
+                    <th class="w-25">Full Name</th>
+                    <th class="w-25">Email</th>
+                    <th>FeedBack</th>
+                    <th style="width: 10%;" >Editing</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in contact %}
+                
+                
+                    <tr>
+
+                        <td> {{info.id}} </td>
+                        <td class="text-capitalize">{{info.fulname}}</td>
+
+                        <td>{{info.email}}</td>
+
+                        <td>
+                          
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#conexampleModalCenter{{info.id}}">
+                            Extensive Information
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="conexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title text-capitalize" id="exampleModalLongTitle">Contact {{info.fulname}}</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  {{info.message}}
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="d-flex justify-content-center" >
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#cexampleModalCenter{{info.id}}">
+                                Delete
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="cexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Delete Warning</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete Contact Id:{{info.id}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <a href="{{url_for('concactdelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+  </div>
+  <!----------------------- Contact Iformation End ------------------------------>  
+
+
+
+
+
+  <!----------------------- Project Iformation Start ------------------------------>
+  <div id="project"style="height: 150px;"></div>
+  <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  p-2 rounded shadow-lg flex-column align-items-center" >
+        <div class="d-flex mt-2 justify-content-center">
+            <h2 >MyProject Information </h2>
+            
+        </div>
+        <div style="width: 91%;" class="d-flex justify-content-end">
+            <a class="btn btn-success " href="{{url_for('adminpro')}}">Project Add</a>
+        </div>
+        
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
+            <thead class="table-dark text-light">
+                <tr style="text-align: center;" >
+                    <th style="width:5% ;" >Id</th>
+                    <th style="width:20%;">Card Time</th>
+                    <th >Card Title</th>
+                    <th style="width:15%;" >Card Information</th>
+                    <th>Showing</th>
+                    <th>Show Edit</th>
+                    <th style="width: 10%;" >Editing</th>
+                </tr>
+            </thead>
+            <tbody id="listener">
+                {% for info in project %}
+                
+                
+                    <tr>
+                        <td> {{info.id}} </td>
+                        <td class="text-capitalize" >{{info.protime}}</td>
+
+                        <td class="text-capitalize" >{{info.protitle}}</td>
+
+                        <td>
+                          
+
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#proexampleModalLong{{info.id}}">
+                            Extensive Information
+                          </button>
+                          
+                          <!-- Modal -->
+                          <div class="modal fade" id="proexampleModalLong{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Card Information	</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  
+                                  
+                                    <div class="container-fluid">
+                                      <div class="row">
+                                        <div class="col-12 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Description</div>
+                                          {{info.prosortcut}}
+                                        </div>
+
+                                        <div class="col-12 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Image</div>
+                                          <img style="width: 100%;
+                                          height: 100%;
+                                          object-fit: cover;
+                                          object-position: top;" src="../../static/img/{{info.proimg}}" alt="">
+                                        </div>
+
+                                        <div class="col-12 mt-5 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Paragraph - 1</div>
+                                          {{info.projareya}}
+                                        </div>
+
+                                        <div style="border-left: 4px solid #DBDADA;" class="col-12 border-bottom ml-2 mt-2 py-2   ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Description</div>
+                                          {{info.prosortcut}}{{info.cardTextadd}}
+                                        </div>
+                                      
+                                        <div class="col-12 mt-2 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Paragraph - 2</div>
+                                          {{info.projareya2}}
+                                        </div>
+
+                                        <div style="background-color: #f3f3f3;border-right: 4px solid #DBDADA;" class="col-12 mt-2 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Title</div>
+                                          {{info.projtitle}}
+                                        </div>
+
+
+                                        {% if info.listp  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                            
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 1</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp}}
+                                          </div>
+                                          
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp1  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 2</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp1}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp2  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 3</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp2}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp3  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 4</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp3}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp4  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 5</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp4}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp5  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 6</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp5}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp6  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 7</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp6}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        {% if info.listp7  %}
+                                        <div class="col-12 mt-2 py-2 border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">List - 8</div>
+                                          <div class="d-flex">
+                                            <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                                            {{info.listp7}}
+                                          </div>
+                                        </div>
+                                        {% endif %}
+
+                                        <div class="col-12 mt-2 py-2  border-bottom ml-auto">
+                                          <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Project Paragraph - 3</div>
+                                          {{info.projareya3}}
+                                        </div>
+                                        
+                                      </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </td>
+                        <td>
+                          {% if info.show=="1" %}
+                            <i style="color: red;" class="fas fa-record-vinyl "></i>
+                          {% else %}
+                            <i  class="fas fa-record-vinyl"></i>
+                          {% endif %}
+                        </td>
+                        <td class="row m-0  ">
+                          <form  class="d-inline-block col-6" method="POST">
+                            <input style="visibility: hidden;width: 1px;height:1px;" type="number" name="show_project" value="{{info.id}}">
+                            
+                            <button type="submit" class="btn btn-sm btn-success">Showing</button>
+                          </form>
+                          <form  class="d-inline-block col-6" method="POST">
+                            <input style="visibility: hidden;width: 1px;height:1px;" type="number" name="unshow_project" value="{{info.id}}">
+                            
+                            <button type="submit" class="btn btn-sm btn-warning">UnShowing</button>
+                          </form>
+
+                        </td>
+                        <td>
+                            <a class="btn  btn-info btn-sm btn" href="{{url_for('editpro', id=info.id)}}">Edit</a>
+                            {% if info.id>4  %}
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#prseexampleModalCenter{{info.id}}">
+                                Delete
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="prseexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Delete Warning</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       
+                                        
+                                        
+                                        Do you want to delete Project id:{{info.id}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <a href="{{url_for('projectdelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            {% endif %}
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+  </div>
+  <!----------------------- Project Iformation End ------------------------------>
+
+
+
+
+
+  <!-------------------------- Home Iformation Start ----------------------------> 
+  <div id="home" style="height: 150px;"></div>
+  <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  p-2 rounded shadow-lg flex-column align-items-center" >
+        <div class="d-flex mt-2 justify-content-center">
+            <h2 >Home Information </h2>
+            
+        </div>
+        <div style="width: 91%;" class="d-flex justify-content-end">
+            <a class="btn btn-success " href="{{url_for('adminhome')}}">Home Add</a>
+        </div>
+        
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
+            <thead class="table-dark text-light">
+                <tr style="text-align: center;" >
+                    <th style="width:5% ;" >Id</th>
+                    <th >Home Title</th>
+                    <th style="width: 15%;">Home Image</th>
+                    <th>Showing</th>
+                    <th>Show Edit</th>
+                    <th style="width: 10%;" >Editing</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in home %}
+                
+                
+                    <tr>
+                        <td> {{info.id}} </td>
+
+                        <td class="text-capitalize" >
+                          {{info.info}}
+                        </td>
+
+                        <td>
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#hasexampleModalCenter{{info.id}}">
+                            Image
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="hasexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Home Image</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Card Image</div>
+                                          <img style="width: 100%;
+                                          height: 100%;
+                                          object-fit: cover;
+                                          object-position: top;" src="../../static/img/{{info.infoimg}}" alt="">
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          {% if info.show=="1" %}
+                            <i style="color: red;" class="fas fa-record-vinyl "></i>
+                          {% else %}
+                            <i  class="fas fa-record-vinyl"></i>
+                          {% endif %}
+                        </td>
+                        <td>
+                          <form  class="d-inline-block" method="POST">
+                            <input style="visibility: hidden;width: 1px;height:1px;" type="text" name="show_home" value="{{info.id}}">
+                            <button type="submit" class="btn btn-sm btn-success">Showing</button>
+                          </form>
+                        </td>
+                        <td>
+                            <a class="btn  btn-info btn-sm btn" href="{{url_for('edithome', id=info.id)}}">Edit</a>
+                            {% if info.id!=1 %}
+                            
+                            
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#homexampleModalCenter{{info.id}}">
+                                Delete
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="homexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Delete Warning</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete Home id:{{info.id}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <a href="{{url_for('homedelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {% endif %}
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+  </div>
+  <!-------------------------- Home Iformation End ----------------------------> 
+
+
+  <!-------------------------- Background Image Iformation Start ----------------------------> 
+  <div id="bacgroundimg" style="height: 150px;"></div>
+  <div  style="width:92%;background-color: #e4e0e0;"  class="d-flex  p-2 rounded shadow-lg flex-column align-items-center" >
+        <div class="d-flex mt-2 justify-content-center">
+            <h2 >Background Image Information </h2>
+            
+        </div>
+        <div style="width: 91%;" class="d-flex justify-content-end">
+            <a class="btn btn-success " href="{{url_for('bacgroundimg')}}">Background Image Add</a>
+        </div>
+        
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
+            <thead class="table-dark text-light">
+                <tr style="text-align: center;" >
+                    <th style="width:5% ;" >Id</th>
+                    <th>Background Image</th>
+                    <th >Showing</th>
+                    <th style="width:15%;">Show Edition</th>
+                    <th style="width: 10%;" >Editing</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in backimg %}
+                
+                
+                    <tr>
+                        <td> {{info.id}} </td>
+
+
+                        <td>
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#hasttexampleModalCenter{{info.id}}">
+                            Image
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="hasttexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">Background Image</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div style="font-size: 18px;" class="d-flex font-weight-bold h2 justify-content-center">Background Image</div>
+                                    <img style="width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    object-position: top;" src="../../static/img/{{info.infoimg}}">
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          {% if info.show=="1" %}
+                            <i style="color: red;" class="fas fa-record-vinyl "></i>
+                          {% else %}
+                            <i  class="fas fa-record-vinyl"></i>
+                          {% endif %}
+                        </td>
+                        <td>
+                          <form  class="d-inline-block" method="POST">
+                            <input style="visibility: hidden;width: 1px;height:1px;" type="number" name="show" value="{{info.id}}">
+                            
+                            <button type="submit" class="btn btn-sm btn-success">Showing</button>
+                          </form>
+                        </td>
+                        <td>
+                            {% if info.id!=1 %}
+                            
+                            
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#homesexampleModalCenter{{info.id}}">
+                                Delete
+                            </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="homesexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Delete Warning</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete Home id:{{info.id}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <a href="{{url_for('backgoundelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {% endif %}
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+  </div>
+  <!-------------------------- Background Image Iformation End ----------------------------> 
+
+
+  
+  <!-------------------------- About Iformation Start ------------------------> 
+  <div id="about" style="height: 150px;"></div>
+  <div  style="width:92%;background-color: #e4e0e0;margin:120px;"  class="d-flex mt-5 p-2 rounded shadow-lg flex-column align-items-center" >
+        <div class="d-flex mt-2 justify-content-center">
+            <h2 >About Information </h2>
+            
+        </div>
+        <div style="width: 91%;" class="d-flex justify-content-end">
+            <a class="btn btn-success " href="{{url_for('adminabout')}}">About Add</a>
+        </div>
+        
+        <table style="width: 95%;" class=" mt-2 text-center table table-hover table-striped table-bordered">
+            <thead class="table-dark text-light">
+                <tr style="text-align: center;" >
+                    <th style="width:5% ;" >Id</th>
+                    <th  >Language - 1</th>
+                    <th>% - 1</th>
+                    <th  >Language - 2</th>
+                    <th>% - 2</th>
+                    <th >Information</th>
+                    <th>Showing</th>
+                    <th>Show Edit</th>
+                    <th style="width: 10%;" >Editing</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for info in about %}
+                    <tr>
+                        <td> {{info.id}} </td>
+
+                        <td class="text-capitalize" >{{info.disgen1}}</td>
+                        <td class="text-capitalize" >{{info.disgen1interest}}</td>
+                        <td class="text-capitalize" >{{info.disgen2}}</td>
+                        <td class="text-capitalize" >{{info.disgen2interest}}</td>
+                        <td>
+                          <!-- Button trigger modal -->
+                          <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#abbbexampleModalCenter{{info.id}}">
+                            Extensive Information
+                          </button>
+
+                          <!-- Modal -->
+                          <div class="modal fade" id="abbbexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLongTitle">About Information</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <div class="row border mt-2">
+                                    <div class="col-9 border-right pb-2 ">
+                                      <div style="font-size: 18px;" class="d-flex   py-2 font-weight-bold h2 justify-content-center">Language - 3	</div>
+                                      <div class="col-12">{{info.disgen3}}</div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div style="font-size: 18px;" class="d-flex  py-2 font-weight-bold h2 justify-content-center">% - 3	</div>
+                                      <div class="col-12">{{info.disgen3interest}}</div>
+                                    </div>
+                                  </div>
+                                  <div class="row border mt-2">
+                                    <div class="col-9 border-right pb-2 ">
+                                      <div style="font-size: 18px;" class="d-flex   py-2 font-weight-bold h2 justify-content-center">Language - 4	</div>
+                                      <div class="col-12">{{info.disgen4}}</div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div style="font-size: 18px;" class="d-flex  py-2 font-weight-bold h2 justify-content-center">% - 4	</div>
+                                      <div class="col-12">{{info.disgen4interest}}</div>
+                                    </div>
+                                  </div>
+                                  <div class="row border mt-2">
+                                    <div class="col-9 border-right pb-2 ">
+                                      <div style="font-size: 18px;" class="d-flex   py-2 font-weight-bold h2 justify-content-center">Language - 5	</div>
+                                      <div class="col-12">{{info.disgen5}}</div>
+                                    </div>
+                                    <div class="col-3">
+                                      <div style="font-size: 18px;" class="d-flex  py-2 font-weight-bold h2 justify-content-center">% - 5	</div>
+                                      <div class="col-12">{{info.disgen5interest}}</div>
+                                    </div>
+                                  </div>
+                                  <div class="row mt-2 border">
+                                    <div style="font-size: 18px;" class="d-flex py-2 font-weight-bold h2 justify-content-center">Paragraph One</div>
+                                    <div class="col-12">{{info.aboutinfo1}}</div>
+                                  </div>
+                                  <div class="row border mt-2">
+                                    <div style="font-size: 18px;" class="d-flex py-2 font-weight-bold h2 justify-content-center">Paragraph Two</div>
+                                    <div class="col-12">{{info.aboutinfo2}}</div>
+                                  </div>
+                                  <div style="font-size: 18px;" class="d-flex my-2 font-weight-bold h2 justify-content-center">About Image</div>
+                                          <img style="width: 100%;
+                                          height: 100%;
+                                          object-fit: cover;
+                                          object-position: top;" src="../../static/img/{{info.aboutinfoimg}}" alt="">
+
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          {% if info.show=="1" %}
+                            <i style="color: red;" class="fas fa-record-vinyl "></i>
+                          {% else %}
+                            <i  class="fas fa-record-vinyl"></i>
+                          {% endif %}
+                        </td>
+                        <td>
+                          <form  class="d-inline-block" method="POST">
+                            <input style="visibility: hidden;width: 1px;height:1px;" type="number" name="show_about" value="{{info.id}}">
+                            
+                            <button type="submit" class="btn btn-sm btn-success">Showing</button>
+                          </form>
+                        </td>
+                        <td>
+                            <a class="btn  btn-info btn-sm btn" href="{{url_for('editabout', id=info.id)}}">Edit</a>
+                            {% if info.id!=1 %}
+                            
+                            
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#aexampleModalCenter{{info.id}}">
+                                Delete
+                              </button>
+                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="aexampleModalCenter{{info.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="exampleModalLongTitle">Delete Warning</h5>
+                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                      </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Do you want to delete About id:{{info.id}}?
+                                    </div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <a href="{{url_for('aboutdelete', id=info.id)}}" class="btn btn-danger">Delete</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            {% endif %}
+                        </td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+  </div>
+  <!----------------------- About Iformation End --------------------------> 
+    
+</div>
+
+
+
+
+{% endblock %}
+

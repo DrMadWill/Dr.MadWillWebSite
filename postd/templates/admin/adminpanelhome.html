@@ -1,0 +1,41 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}
+  <title>Admin Panel Home</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+
+<!-----------------------------------Admin Panel Home Start ------------------------------------------->
+    <div class=" d-flex flex-column  mx-4  my-3">
+        <div class="bg-primary d-flex  justify-content-center text-light px-2 py-3">
+          Home
+        </div>
+        <div>
+          <form class="row"   enctype="multipart/form-data" method="POST" >
+                <!-- Home Title Start -->
+                <div class="col-12">
+                  <input type="text" name="HomeTitleText" class="form-control my-3"  placeholder="Home Title" required>
+                </div>
+                <!-- Home Title End-->
+
+                <!-- image upload start -->
+                <input type="file" class="col-12 form-control-file" name="file">
+                <!-- image upload end -->
+
+                <div class="col-12 d-flex  justify-content-center my-2">
+                  <button class="btn btn-lg btn-block btn-primary" type="submit">Add info</button>
+                </div>
+
+          </form>
+        </div>
+  </div>
+<!-----------------------------------Admin Panel Home End ------------------------------------------->
+
+  {% endblock %}
+
+
+ 

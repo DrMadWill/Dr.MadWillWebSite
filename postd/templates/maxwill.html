@@ -1,0 +1,460 @@
+{% extends "base.html" %} 
+
+{% block title %}
+    <title>Dr.MadWill</title>
+{% endblock %}
+
+
+{% block contet %}
+    <main>
+        
+        <section style="background-image:linear-gradient(60deg, rgba(60,173,208,0.7) 25%, rgba(46,195,75,0.7) 56%, rgba(0,181,23,0.7) 83%), url(../static/img/{{backimg.infoimg}})" id="home">
+            <div class="space-10">
+                <div class="container pr-row">
+                    
+                    <!-- DESKOP VIEW-->
+                    
+                    <div class="pr-col-6 pr-box-sizing home-info">
+                        
+                        <h1 class="home-info-text">{{homeinfo['info']}}</h1>
+                        
+                    </div>
+                    
+                    <div class="pr-col-6 card-home">
+    
+                        
+                        <a href="">
+                            <div  class="img-home"><img src="../static/img/{{homeinfo['infoimg']}}" class=" img-fluid" alt=""></div>
+                            
+                        </a>
+                        
+    
+                    </div>
+    
+                    
+                </div>
+                <div class="pr-row">
+                    <!-- TABLET AND TELEFON VIEW-->
+    
+                    <div class="pr-col-12 pr-box-sizing home-info pr-responsive ">
+                        
+                        <h1 class="home-info-text">{{homeinfo['info']}}</h1>
+                        
+                    </div>
+                    
+                    <div class="pr-col-12  pr-responsive">
+    
+                        <a href="">
+                            <div >
+                                <img src="../static/img/{{homeinfo['infoimg']}}" class=" img-fluid" alt="">
+                            </div>
+                        </a>
+    
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" >
+
+            <div class="container pr-row">
+
+                <!-- DESKOP VIEW-->
+
+                <div class="pr-col-5">
+                    <div class="pr-section-title ">
+                        <h2 class="pr-title-name">Let me introduce</h2>
+                        <div class="">
+                            <button class="pr-carusel-btn"><span></span></button>
+                            <button class="pr-carusel-btn"><span></span></button>
+                            <button class="pr-carusel-btn"><span></span></button>
+                        </div>
+                    </div>
+                    <p class="about-text">{{aboutinfo['aboutinfo1']}}</p>
+                    <p class="about-text">{{aboutinfo['aboutinfo2']}}</p>
+                </div>
+
+                <div class="pr-col-3 pr-box-sizing ">
+                    <div class="pr-row">
+                        <h4>{{aboutinfo['disgen1']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen1interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen1interest']}}%;" class="pr-border"></div>
+
+                    <div class="pr-row">
+                        <h4>{{aboutinfo['disgen2']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen2interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen2interest']}}%;" class="pr-border "></div>
+                    
+                    <div class="pr-row">
+                        <h4>{{aboutinfo['disgen3']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen3interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen3interest']}}%;" class="pr-border"></div>
+
+                    <div class="pr-row">
+                        <h4>{{aboutinfo['disgen4']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen4interest']}}</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen4interest']}}%" class="pr-border"></div>
+
+                    <div class="pr-row">
+                        <h4>{{aboutinfo['disgen5']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen5interest']}}</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen5interest']}}%" class="pr-border"></div>
+                    
+                </div>
+
+                <div class="pr-col-4">
+                    <div class="about-image">
+                        <img class="img-fluid" src="../static/img/{{aboutinfo['aboutinfoimg']}}" alt="">
+                    </div>
+                </div>
+
+                <!-- TABLET VIEW -->
+
+                <div class="pr-responsive">
+
+                    <div class="pr-col-6 ">
+                        <div class="pr-section-title ">
+                            <h2 class="pr-title-name">Let us introduce</h2>
+                            <div class="">
+                                <button class="pr-carusel-btn"><span></span></button>
+                                <button class="pr-carusel-btn"><span></span></button>
+                                <button class="pr-carusel-btn"><span></span></button>
+                            </div>
+                        </div>
+                        <p class="about-text">{{aboutinfo['aboutinfo1']}}</p>
+                        <p class="about-text">{{aboutinfo['aboutinfo2']}}</p>
+                    </div>
+
+                    <div class="pr-col-6  pr-box-sizing">
+                        <div class="pr-row pr-justify-content-between">
+                            <h4>{{aboutinfo['disgen1']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen1interest']}}%</span>
+                        </div>
+                        <div style="width: {{aboutinfo['disgen1interest']}}%;" class="pr-border"></div>
+
+                        <div class="pr-row pr-justify-content-between">
+                            <h4>{{aboutinfo['disgen2']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen2interest']}}</span>
+                        </div>
+                        <div style="width: {{aboutinfo['disgen2interest']}}%;" class="pr-border"></div>
+                        
+                        <div class="pr-row pr-justify-content-between">
+                            <h4>{{aboutinfo['disgen3']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen3interest']}}%</span>
+                        </div>
+                        <div style="width: {{aboutinfo['disgen3interest']}}%;" class="pr-border"></div>
+
+                        <div class="pr-row pr-justify-content-between">
+                            <h4>{{aboutinfo['disgen4']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen4interest']}}%</span>
+                        </div>
+                        <div style="width: {{aboutinfo['disgen4interest']}}%;" class="pr-border"></div>
+                        
+                        <div class="pr-row pr-justify-content-between">
+                            <h4>{{aboutinfo['disgen5']}}</h4>
+                            <span class="span-font">{{aboutinfo['disgen5interest']}}%</span>
+                        </div>
+                        <div style="width: {{aboutinfo['disgen5interest']}}%;" class="pr-border"></div>
+                        
+                    </div>
+                </div>
+
+                <div class="pr-col-12 pr-responsive">
+                    <div class="about-image">
+                        <img class="img-fluid" src="../static/img/{{aboutinfo['aboutinfoimg']}}" alt="">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="pr-row pr-flex-direction-column pr-responsive-telefon ">
+                 <!-- TELEFON VIEW -->
+                
+                 <div class="pr-col-12 pr-justify-content-center">
+                    <div class="pr-section-title ">
+                        <h2 class="pr-title-name">Let us introduce</h2>
+                        <div class="">
+                            <button class="pr-carusel-btn"><span></span></button>
+                            <button class="pr-carusel-btn"><span></span></button>
+                            <button class="pr-carusel-btn"><span></span></button>
+                        </div>
+                    </div>
+                    <p class="about-text">{{aboutinfo['aboutinfo1']}}</p>
+                    <p class="about-text">{{aboutinfo['aboutinfo2']}}</p>
+                </div>
+
+                <div class="pr-col-12 pr-justify-content-center pr-box-sizing">
+
+                    <div class="pr-row pr-justify-content-between">
+                        <h4>{{aboutinfo['disgen1']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen1interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen1interest']}}%;" class="pr-border"></div>
+
+                    <div class="pr-row pr-justify-content-between">
+                        <h4>{{aboutinfo['disgen2']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen2interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen2interest']}}%;" class="pr-border"></div>
+                    
+                    <div class="pr-row pr-justify-content-between">
+                        <h4>{{aboutinfo['disgen3']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen3interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen3interest']}}%;" class="pr-border"></div>
+
+                    <div class="pr-row pr-justify-content-between">
+                        <h4>{{aboutinfo['disgen4']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen4interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen4interest']}}%;" class="pr-border"></div>
+
+                    <div class="pr-row pr-justify-content-between">
+                        <h4>{{aboutinfo['disgen5']}}</h4>
+                        <span class="span-font">{{aboutinfo['disgen5interest']}}%</span>
+                    </div>
+                    <div style="width: {{aboutinfo['disgen5interest']}}%;" class="pr-border"></div>
+                    
+                </div>
+                
+                <div class="pr-col-12 ">
+                    <img class="img-fluid" src="../static/img/{{aboutinfo['aboutinfoimg']}}" alt="">
+                </div>
+            </div>
+
+        </section>
+
+        <section id="myproject">
+            
+            <!--MyPoject Deskop Veiw Start -->
+
+            <div class="pr-row pr-flex-direction-column container">
+
+                <div class="pr-row pr-justify-content-center">
+                    <div class="pr-section-title">
+                        <h2 class="pr-title-name">My Project</h2>
+                        <div class="pr-row pr-justify-content-center ">
+                            <button class="pr-carusel-btn"><span></span></button>
+                            <button class="pr-carusel-btn"><span></span></button>
+                            <button class="pr-carusel-btn"><span></span></button>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="row pr-project-container">
+
+                    {% for info in prostatic %}
+
+                        <div class="col-6">
+                                    <div class="pr-card pr-row deskopveiw pr-row-taplet">
+                                        <div class="pr-card-head">
+                                            <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
+                                        </div>
+                                        <div class="pr-card-body">
+                                            <div class="pr-card-time">
+                                                <i class="far fa-clock"></i> 
+                                                {{info.protime}}
+                                            </div>
+                                            <a href="{{url_for('project', id=info.id)}}" class="pr-card-title pr-link">
+                                                {{info.protitle}}
+                                            </a>
+                                            <p class="pr-card-text">{{info.prosortcut}}</p>
+                                            <a class="pr-card-btn" href="{{url_for('project', id=info.id)}}">Read aricle</a>
+                                            
+                                        </div>
+                                    </div>
+                        </div>
+                        
+
+                    {% endfor %}
+
+
+
+                </div>
+
+
+                <div id="showbox" class="row pr-project-container">
+
+                    {% for info in projec %}
+                    
+
+                            <div class="col-6">
+                                    <div class="pr-card pr-row deskopveiw pr-row-taplet">
+                                        <div class="pr-card-head">
+                                            <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
+                                        </div>
+                                        <div class="pr-card-body">
+                                            <div class="pr-card-time">
+                                                <i class="far fa-clock"></i> 
+                                                {{info.protime}}
+                                            </div>
+                                            <a href="{{url_for('project', id=info.id)}}" class="pr-card-title pr-link">
+                                                {{info.protitle}}
+                                            </a>
+                                            <p class="pr-card-text">{{info.prosortcut}}</p>
+                                            <a class="pr-card-btn" href="{{url_for('project', id=info.id)}}">Read aricle</a>
+                                            
+                                        </div>
+                                    </div>
+                            </div>
+
+                        
+
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="pr-row pr-project-container pr-justify-content-center algin-items-center">
+
+                    <button id="btnDeskop" class="project-more" onclick="showMore()" >
+                        Show more...
+                    </button>
+    
+                </div>
+                
+            </div>
+
+            <!-- MyPoject Deskop Veiw End -->
+
+
+            <!-- TELEFON VEIW Start-->
+
+            <div class="pr-project-container-tel">
+
+                {% for info in prostatic %}
+
+                        
+                    
+
+                        <div>
+                            <div class="pr-card pr-row pr-row-taplet">
+                                <div class="pr-card-head">
+                                    <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
+                                </div>
+                                <div class="pr-card-body">
+                                    <div class="pr-card-time">
+                                        <i class="far fa-clock"></i>{{info.protime}}
+                                    </div>
+                                    <a href="{{url_for('project', id=info.id)}}" class="pr-card-title pr-link">{{info.protitle}}</a>
+                                    <p class="pr-card-text">{{info.prosortcut}},{{info.id}}</p>
+                                    <a href="{{url_for('project', id=info.id)}}" class="pr-card-btn">Read aricle</a>
+                                </div>
+                                
+            
+                            </div>
+                        </div>
+                    
+                        
+
+                {% endfor %}
+        
+                
+                <div id="showBoxTablet" class="pr-row pr-flex-direction-column">
+
+                    {% for info in projec %}
+                    
+
+
+                    
+                            <div class="pr-card pr-row pr-row-taplet">
+                                <div class="pr-card-head">
+                                    <img class="img-fluid" src="../static/img/{{info.proimg}}" alt="">
+                                </div>
+                                <div class="pr-card-body">
+                                    <div class="pr-card-time">
+                                        <i class="far fa-clock"></i> 
+                                        {{info.protime}}
+                                    </div>
+                                    <a href="{{url_for('project', id=info.id)}}" class="pr-card-title pr-link">{{info.protitle}}</a>
+                                    <p class="pr-card-text">{{info.prosortcut}}</p>
+                                    <a href="{{url_for('project', id=info.id)}}" class="pr-card-btn">Read aricle</a>
+                                </div>
+                                
+            
+                            </div>
+
+
+
+                    {% endfor %}
+
+
+
+                </div>
+
+
+
+
+                <div class="pr-row pr-justify-content-center algin-items-center">
+
+                    <button id="btnTablet" class="project-more" onclick="MoreTablet()" >
+                        Show more...
+                    </button>
+    
+                </div>
+                
+            </div>
+
+            <!-- TELEFON VEIW End-->
+
+        </section>
+
+        <section id="contact">
+            <div class="space-10">
+                <div class="pr-row pr-flex-direction-column container">
+
+                    <div class="pr-row pr-justify-content-center">
+                        <div class="pr-section-title">
+                            <h2 class="pr-title-name">Contact Me</h2>
+                            <div class="pr-row pr-justify-content-center ">
+                                <button class="pr-carusel-btn"><span></span></button>
+                                <button class="pr-carusel-btn"><span></span></button>
+                                <button class="pr-carusel-btn"><span></span></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <form action="{{url_for('main')}}" method="POST">
+            
+                            <div class="clearfix cas">
+                                {{form.csrf_token}}
+                                <div class="from-comp col-50 form-left">
+                                        
+                                        {{form.fulname(class="in-conp tass",placeholder="Your Name")}}
+
+                                </div>
+
+                                <div class="from-comp col-50 form-right">
+                                        
+                                        {{form.email(placeholder="Your Email", class="in-conp", cols="30" ,rows="10")}}
+                                        <!--  -->
+                                </div>
+                            </div>
+
+                           {{form.message(class="in-conp pr_in_textarea",placeholder="Your Massege", cols="30",rows="10")}}
+                            
+                            
+                            <div class="submit">
+                                {{form.submit(class="pr-in-submit", value="Send Massege")}}
+                            </div>          
+                        </form>
+            
+            
+            
+                    </div>
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </section>      
+    </main>
+{% endblock %} %}

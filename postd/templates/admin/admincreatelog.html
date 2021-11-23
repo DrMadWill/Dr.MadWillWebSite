@@ -1,0 +1,47 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}
+  <title>Admin Panel Login Add</title>
+{% endblock %}
+
+
+{% block content %}
+
+
+
+  <!----------------------------------- Login Add Start ------------------------------------------->
+
+      <div class=" d-flex flex-column  mx-4  my-3">
+          <div class="bg-info d-flex  justify-content-center text-light px-2 py-3">
+            Log in Add
+          </div>
+          <div>
+            <form class="row" method="POST" >
+                  <!-- Login Start -->
+                  <div class="col-12">
+                    {{form.csrf_token}}
+                    {{form.login(class="form-control my-3",placeholder="Log in")}}
+                  </div>
+                  <!-- Login End-->
+
+                  <!-- Password Start -->
+                  <div class="col-12">
+                      {{form.password(class="form-control my-3", placeholder="Password")}}
+                  </div>
+                  <!-- Password End-->
+
+                  
+
+                  <div class="col-12 d-flex  justify-content-center my-2">
+                    <button class="btn btn-info btn-block btn-primary" type="submit">Add info</button>
+                  </div>
+
+            </form>
+          </div>
+    </div>
+
+  <!-------------------------------------------- Login Add End ---------------------------------------->
+  {% endblock %}
+
+
+ 

@@ -1,0 +1,23 @@
+
+
+<!---------------------------------  Admin Panel Navbar ------------------------------------------------------>
+
+
+<div style="background-color: #f3f3f3;  " class="btn-group fixed-top shadow d-flex justify-content-center  !spacing" role="group" aria-label="Basic example">
+    <a style="background-image: linear-gradient(60deg, rgba(60,173,208,1) 25%, rgba(46,195,75,1) 56%, rgba(0,181,23,1) 83%); font-weight:800 ;" class="btn d-inline-block py-3 px-4  text-light m-3" href="{{url_for('main')}}">Dr.MadWill</a>
+    <a class="btn d-inline-block py-3 px-4 bg-dark text-light m-3" href="{{url_for('adminmain')}}#contact">Contact</a>
+    <a class="btn d-inline-block py-3 px-4 bg-success text-light m-3" href="{{url_for('adminmain')}}#project">MyProject</a>
+    <a class="btn d-inline-block py-3 px-4 bg-primary text-light m-3" href="{{url_for('adminmain')}}#home">Home</a>
+    <a class="btn d-inline-block py-3 px-4 bg-warning text-light m-3" href="{{url_for('adminmain')}}#about">About</a>
+    <a class="btn d-inline-block py-3 px-4 bg-light text-dark m-3" href="{{url_for('adminmain')}}#bacgroundimg">Back Image</a>
+    <a style="max-width: 70px;" class="btn d-inline-block py-3 px-4 bg-info text-light m-3" href="{{url_for('adminmain')}}#acsess">
+        <i style="font-size:1.2rem;" class="fas fa-user-cog"></i>
+    </a>
+    <a style="max-width: 70px;" class="btn d-inline-block py-3 px-4 bg-danger text-light m-3" href="{{url_for('logout')}}">
+        <i style="font-size:1.2rem;" class="fas fa-sign-out-alt"></i>
+    </a>
+</div>
+
+<div style="height: 100px;"></div>
+
+

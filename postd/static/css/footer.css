@@ -1,0 +1,100 @@
+
+:root{
+
+    /* color */
+    --first-clr:#f1f1f1;
+    --second-clr:rgba(221, 25, 25, 0.856);
+    --trid-clr:#000;
+    --fourth-clr:rgba(63, 59, 59,0.83);
+
+
+    /* body - text - p*/
+    --btext-clr:#757575;
+
+
+    /* title - text - h2*/
+    --ttext-clr: #393939;
+
+
+    /* Shadow color */
+    --shadow:rgba(78, 78, 78, 0.342);
+
+    /* gradtiet */
+    --gradient-clr:linear-gradient(60deg, rgba(60,173,208,1) 25%, rgba(46,195,75,1) 56%, rgba(0,181,23,1) 83%);
+
+
+    /* Font Family */
+    --ffamily:'Poppins', sans-serif;
+
+    /*  */
+
+
+}
+
+footer{
+    background-image:  linear-gradient(90deg, rgba(57,59,60,1) 25%, rgba(32,41,34,1) 56%, rgba(0,0,0,1) 83%);;
+    padding-top: 80px;
+    padding-bottom: 60px;
+}
+
+
+footer{
+    color: white;
+}
+
+footer h4{
+    font-size: 29px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+footer .footer-text{
+    
+    font-size: 15px;
+    font-weight: 300;
+    color: #f4f4f4;
+    line-height: 25px;
+}
+
+footer .pr-col-6:first-child{
+    padding-right: 70px;
+}
+
+footer .pr-col-6:last-child{
+    padding-left: 80px;
+}
+
+.footer-contact{
+    border-top: 0.5px solid rgba(207, 199, 199, 0.178);
+    margin-top: 70px;
+    padding-top: 50px;
+    padding-right: 65px;
+}
+
+footer .pr-share{
+    padding-right: 80px;
+    color:var(--first-clr);
+}
+
+
+footer .tabletveiw .betwwn{
+    margin-bottom: 40px;
+}
+
+footer .tabletveiw ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+footer .tabletveiw .footer-text{
+    width: 240px;
+}
+
+
+footer .tabletveiw .footer-border{
+    padding-top: 40px;
+    display: flex;
+    border-top: 0.5px solid rgba(207, 199, 199, 0.178);
+
+}

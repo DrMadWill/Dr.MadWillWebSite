@@ -1,0 +1,163 @@
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* HOME-PROJECT start */
+
+#home-project{
+    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    background-size: cover;
+}
+
+
+#home-project .pr-row{
+    align-items: center;
+    color: white;
+    transition: all 0.3s;
+    
+}
+
+#home-project .title-container{
+    margin-left: 115px;
+    width: 460px;
+    padding: 0 15px;
+    transition: all 0.3s;
+}
+
+.home-project-title{
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.home-project-deskop{
+    height: 400px;
+    transition: all 0.3s;
+
+}
+
+@media (min-width:768px) and (max-width:992px) {
+    #home-project .pr-row{
+        justify-content: center;
+    }
+
+    #home-project .title-container{
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width:786px) {
+    .home-project-deskop{
+        height: 650px;
+    }
+
+    #home-project .pr-row{
+        justify-content: center;
+    }
+
+
+    #home-project .title-container{
+        width: auto;
+        margin-left: 0;
+    }
+}
+
+/* HOME PROJECT - END */
+
+
+
+
+/* INFO PROJECT - START */
+
+
+
+#info-project{
+    padding: 55px 0;
+}
+
+.left-space{
+    margin-left: 115px;
+    padding: 0 10px;
+}
+
+@media (max-width:992px) {
+    .left-space{
+        margin-left: 0;
+    }
+}
+
+/* IMG PROJECT - START */
+
+.img-container{
+    width: 100%;
+    margin: 25px 0;
+}
+
+
+.pr-img-fluid{
+    width: 100%;
+    height: auto;
+}
+
+/* IMG PROJECT - End */
+
+.project-text{
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    color: #757575;
+    line-height: 25px;
+    margin: 5px 0;
+}
+
+.project-info-title{
+    font-size: 28px;
+    font-weight: 400;
+    margin: 35px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.left-border{
+    border-left: 4px solid #cccacab2;
+    padding:10px 0px 10px 35px  ;
+    
+    font-size: 16px;
+    font-weight: 300;
+    font-weight: 400;
+    margin: 15px 0;
+
+}
+
+.info-project-info{
+    margin: 20px 0;
+    padding: 50px 0;
+    background-color: #f3f3f3;
+    border-right: 4px solid black;
+    
+}
+
+.info-title{
+    font-size: 20px;
+    margin-left: 15px;
+    font-weight: 400;
+    color: rgb(116, 102, 102);
+}
+
+
+ol{
+    list-style: circle;
+    font-size: 15px;
+}
+
+.header-link{
+    color: white;
+}
+
+

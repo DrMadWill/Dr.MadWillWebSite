@@ -1,0 +1,67 @@
+<header  id="header">
+
+    <nav class="container pr-row">
+        <div id="nav-right" class="pr-row">
+            
+            <div id="logo">
+                <a href="{{url_for('main')}}">
+                    <h4 class=" header-link">Dr.MadWill</h4>
+                </a>
+                <div id="bar-icon" >
+                    <a onclick="iconclick()" >
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </div>
+            </div>
+
+            
+            <ul id="lost" class="pr-row">
+                <li>
+                    <a href="{{ url_for('main')}}#home" onmouseover="max()" class="pr-link pr-row header-link">Home</a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('main') }}#about" class="pr-link pr-row header-link">About</a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('main') }}#myproject" class="pr-link pr-row header-link">MyProject</a>
+                </li>
+
+                <li>
+                    <a href="{{ url_for('main') }}#contact" class="pr-link pr-row header-link">Contact</a>
+                </li>
+            </ul>
+            
+        </div>
+        
+        <ul id="lost1"  class="pr-row pr-share">
+            
+            <li>
+                <a href="https://www.facebook.com/nofel.salahov.5" class="pr-link pr-row header-link">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://twitter.com/NofelSalahov" class="pr-link pr-row header-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            
+            <li>
+                <a href="https://www.instagram.com/salahov__nofel/" class="pr-link pr-row  header-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+
+            <li>
+                <a href="https://github.com/DrMadWill" class="pr-link pr-row  header-link">
+                    <i class="fab fa-github"></i>
+                </a>
+            </li>
+            
+        </ul>
+    </nav>
+
+</header>

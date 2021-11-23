@@ -1,0 +1,121 @@
+{% extends 'base.html' %}
+
+    {% block title %}
+        <title>Dr.MadWill - Project</title>
+    {% endblock %}
+
+
+    {% block contet %}   
+        <main>
+            <section style="background-image:linear-gradient(60deg, rgba(60,173,208,0.7) 25%, rgba(46,195,75,0.7) 56%, rgba(0,181,23,0.7) 83%), url(../static/img/{{backimg.infoimg}})" id="home-project">
+                <div class="container pr-row home-project-deskop">
+                    <div class="title-container">
+                        <h2 class="home-project-title tcapitalize">
+                            {{procejt.protitle}}
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <section id="info-project">
+                
+                <div class="container">
+
+                    <div class="left-space">
+
+                        <div class="img-container">
+                            <img class="pr-img-fluid" src="../static/img/{{procejt.proimg}}" alt="">
+                        </div>
+
+                        <div>
+                            <h3 class="project-info-title tcapitalize">
+                                {{procejt.protitle}}
+                            </h3>
+
+                            <p id="projareya" class="project-text">
+                                {{procejt.projareya | safe}}
+                            </p>
+
+                            <div class="left-border">
+                                <p>
+                                    {{procejt.prosortcut}}
+                                    {% if procejt.cardTextadd %}
+                                        {{procejt.cardTextadd  | safe}}
+                                    {% endif %}
+                                </p>
+                            </div>
+
+                            <p class="project-text">{{procejt.projareya2  | safe}}</p>
+
+                            <div class="pr-row pr-justify-content-center info-project-info">
+                                <h4 class="info-title">{{procejt.projtitle  | safe}}</h4>
+                            </div>
+
+                            {% if procejt.listp %}
+                            
+                            
+
+                            <ol>
+                                <li>
+                                    {{procejt.listp | safe}}
+                                </li>
+                                {% if procejt.listp1 %}
+                                <li>
+                                    {{procejt.listp1 | safe}}
+                                </li>
+                                {% endif %}
+
+                                {% if procejt.listp2 %}
+                                <li>
+                                    {{procejt.listp2 | safe}}
+                                </li>
+                                {% endif %}
+                                
+                                {% if procejt.listp3 %}
+                                <li>
+                                    {{procejt.listp3 | safe}}
+                                </li>
+                                {% endif %}
+
+                                {% if procejt.listp4 %}
+                                <li>
+                                    {{procejt.listp4 | safe}}
+                                </li>
+                                {% endif %}
+
+                                {% if procejt.listp5 %}
+                                <li>
+                                    {{procejt.listp5 | safe}}
+                                </li>
+                                {% endif %}
+                                
+                                {% if procejt.listp6 %}
+                                <li>
+                                    {{procejt.listp6 | safe}}
+                                </li>
+                                {% endif %}
+
+
+                                {% if procejt.listp7 %}
+                                <li>
+                                    {{procejt.listp7 | safe}}
+                                </li>
+                                {% endif %}
+                                
+                            </ol>
+
+                            {% endif %}
+                            
+                            <p class="project-text">{{procejt.projareya3 | safe}}</p>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+        </main>
+    {% endblock %}
+    

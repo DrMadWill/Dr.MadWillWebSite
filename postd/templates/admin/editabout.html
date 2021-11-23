@@ -1,0 +1,128 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}
+<title>Admin Panel About Edit</title>
+<link rel="icon" href="{{url_for('static', filename='img/drag.png')}}" type="image/x-icon" />
+{% endblock %}
+
+
+{% block content %}
+
+<div class="col d-flex flex-column  mx-4   my-3">
+<!-----------------------------------Admin Panel About End ------------------------------------------->
+    <div class="bg-warning d-flex  col-12 justify-content-center text-light px-2 py-3">
+        About
+    </div>
+    <form class="row" enctype="multipart/form-data" method="POST">
+        <!-- Iformation - 1  -->
+        <div class="col-12">
+            <textarea name="info1" class="form-control my-2" cols="30" rows="10" required>{{aboute.aboutinfo1}}</textarea>
+        </div>
+        <!-- Iformation - 1 End-->
+
+        <!-- Iformation - 2 -->
+        <div class="col-12">
+            <textarea name="info2" class="form-control my-2" cols="30" rows="10" required>{{aboute.aboutinfo2}}</textarea>
+        </div>
+        <!--Iformation - 2 End-->
+
+
+
+        <!-- Disgen1 -->
+        <div class="col-12">
+            <input type="text" name="disgen1" class="form-control my-2" value="{{aboute.disgen1}}" required>
+        </div>
+        <!-- Disgen1 End-->
+
+        <!-- Disgen1 interest -->
+        <div class="col-12">
+            <input type="text" name="disgen1interest" class="form-control my-2" value="{{aboute.disgen1interest}}"
+                required>
+        </div>
+        <!--  Disgen1 interest End-->
+
+
+
+
+        <!-- Disgen2 -->
+        <div class="col-12">
+            <input type="text" name="disgen2" class="form-control my-2" value="{{aboute.disgen2}}" required>
+        </div>
+        <!-- Disgen2 End-->
+
+        <!-- Disgen2 interest -->
+        <div class="col-12">
+            <input type="text" name="disgen2interest" class="form-control my-2" value="{{aboute.disgen2interest}}"
+                required>
+        </div>
+        <!--  Disgen2 interest End-->
+
+
+
+
+        <!-- Disgen3 -->
+        <div class="col-12">
+            <input type="text" name="disgen3" class="form-control my-2" value="{{aboute.disgen3}}" required>
+        </div>
+        <!-- Disgen3 End-->
+
+        <!-- Disgen3 interest -->
+        <div class="col-12">
+            <input type="text" name="disgen3interest" class="form-control my-2" value="{{aboute.disgen3interest}}"
+                required>
+        </div>
+        <!--  Disgen1 interest End-->
+
+
+
+
+        <!-- Disgen4 -->
+        <div class="col-12">
+            <input type="text" name="disgen4" class="form-control my-2" value="{{aboute.disgen4}}" required>
+        </div>
+        <!-- Disgen4 End-->
+
+        <!-- Disgen4 interest -->
+        <div class="col-12">
+            <input type="text" name="disgen4interest" class="form-control my-2" value="{{aboute.disgen4interest}}"
+                required>
+        </div>
+        <!--  Disgen4 interest End-->
+
+
+
+
+        <!-- Disgen5 -->
+        <div class="col-12">
+            <input type="text" name="disgen5" class="form-control my-2" value="{{aboute.disgen5}}" required>
+        </div>
+        <!-- Disgen5 End-->
+
+        <!-- Disgen5 interest -->
+        <div class="col-12">
+            <input type="text" name="disgen5interest" class="form-control my-2" value="{{aboute.disgen5interest}}"
+                required>
+        </div>
+        <!--  Disgen5 interest End-->
+
+
+
+
+        <!-- image upload start -->
+        <input type="file" class="col-12 form-control-file" name="afile">
+        <!-- image upload end -->
+
+        <div class="col-12 d-flex  justify-content-center my-2">
+            <button class="btn btn-lg btn-block btn-success" type="submit">Edit info</button>
+        </div>
+
+
+    </form>
+
+    <div>
+
+</div>
+<!-----------------------------------Admin Panel About End ------------------------------------------->
+
+
+{% endblock %}

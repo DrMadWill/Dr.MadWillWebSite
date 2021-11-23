@@ -1,0 +1,143 @@
+{% extends "admin/baseadmin.html" %}
+
+{% block title %}
+  <title>Admin Panel MyPtoject Edit</title>
+  <link rel="icon" href="{{url_for('static', filename='img/drag.png')}}" type="image/x-icon" />
+{% endblock %}
+
+
+{% block content %}
+
+    
+
+
+<!----------------------------------- Admin Panel MyProject Start ------------------------------------------->
+        <div class="col d-flex flex-column  mx-4   my-3">
+            <div class="bg-success d-flex  col-12 justify-content-center text-light px-2 py-3">
+              MyProject Edit
+            </div>
+            <form class="row"   enctype="multipart/form-data" method="POST" >
+              <!-- Card Time  -->
+              <div class="col-12">
+                <input type="text" name="cardTime" value="{{proce.protime}}" class="form-control my-2"  required>
+              </div>
+              <!-- Card Time End-->
+
+              <!-- Card Title -->
+              <div class="col-12">
+                <input type="text" name="cardTitle" value="{{proce.protitle}}" class="form-control my-2"   required>
+              </div>
+              <!-- Card Title End-->
+
+              <!-- Card Text -->
+              <div class="col-12">
+                <input type="text" name="cardText" value="{{proce.prosortcut}}" class="form-control my-2"   required>
+              </div>
+              <!-- Card Text End-->
+
+              <div style="border: 2px solid black;" class="p-3 my-3 ">
+
+                <!-- Card projareya -->
+                <div class="col-12">
+                  <textarea name="projareya" class="form-control my-2" required cols="20" rows="5">{{proce.projareya}}</textarea>
+                </div>
+                <!-- Card projareya End-->
+
+                <!-- Card Textadd -->
+                <div style="border-left: 4px solid #DBDADA;" class="col-12 d-flex">
+                  <input type="text" name="cardTextadd" class="form-control ml-3 my-2" value="{{proce.cardTextadd}}" >
+                </div>
+                <!-- Card Textadd End-->
+
+                <!-- Card projareya2 -->
+                <div class="col-12">
+                  <textarea name="projareya2" class="form-control my-2"  required cols="20" rows="5">{{proce.projareya2}}</textarea>
+                </div>
+                <!-- Card projareya2 End-->
+
+                <!-- projtitle -->
+                <div style="background-color: #f3f3f3;border-right: 4px solid #DBDADA;" class="col-12 py-3 d-flex">
+                  <input style="background-color: #f3f3f3;" type="text" name="projtitle" class="form-control mr-3 ml-2 my-2"  value="{{proce.projtitle}}" required>
+                </div>
+                <!-- projtitle End-->
+
+                <!-- listp -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp" class="form-control my-2"  value="{{proce.listp}}">
+                </div>
+                <!-- listp end-->
+
+                <!-- listp1 -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp1" class="form-control my-2"  value="{{proce.listp1}}" >
+                </div>
+                <!-- listp1 end-->
+
+                <!-- listp2 -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp2" class="form-control my-2"   value="{{proce.listp2}}" >
+                </div>
+                <!-- listp2 end-->
+
+                <!-- listp3 -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp3" class="form-control my-2"  value="{{proce.listp3}}" >
+                </div>
+                <!-- listp3 end-->
+
+                <!-- listp4 -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp4" class="form-control my-2"  value="{{proce.listp4}}" >
+                </div>
+                <!-- listp4 end-->
+
+                <!-- listp5 -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp5" class="form-control my-2"  value="{{proce.listp5}}" >
+                </div>
+                <!-- listp5 end-->
+
+                <!-- listp6 -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp6" class="form-control my-2"  value="{{proce.listp6}}" >
+                </div>
+                <!-- listp6 end-->
+
+                <!-- listp7 -->
+                <div class="col-12 d-flex">
+                  <div style="border: 4px solid #000000;border-radius: 100%;height:4px;align-self: center; margin-right:10px;" ></div>
+                  <input type="text" name="listp7" class="form-control my-2"  value="{{proce.listp7}}" >
+                </div>
+                <!-- listp7 end-->
+
+                <!-- Card projareya3 -->
+                <div class="col-12">
+                  <textarea name="projareya3" class="form-control my-2"  cols="20" rows="5">{{proce.projareya3}}</textarea>
+                </div>
+                <!-- Card projareya3 End-->
+
+              </div>
+
+              <!-- image upload start -->
+              <input type="file" class="col-12 form-control-file" name="pfile">
+              <!-- image upload end -->
+
+              <div class="col-12 d-flex  justify-content-center my-2">
+                <button class="btn btn-lg btn-block btn-success" type="submit">Edit info</button>
+              </div>
+
+
+            </form>
+
+            <div>
+
+        </div>        
+<!----------------------------------- Admin Panel MyProject End ------------------------------------------->
+{% endblock %}
