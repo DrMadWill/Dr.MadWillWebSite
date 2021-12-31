@@ -10,7 +10,7 @@ from postd.forms import ContactFrom,Adminlogin
 
 
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Main Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 @app.route('/',methods=['GET','POST'])
 def main():
@@ -65,7 +65,7 @@ def main():
 
 
 
-# ----------------Project Web page (Main Single Web page) -----------------
+#? ----------------Project Web page (Main Single Web page) -----------------
 
 @app.route('/project/<int:id>', methods=['GET','POST'])
 def project(id):
@@ -81,7 +81,7 @@ def project(id):
 
 
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Login Web page Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Login Web page Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 @app.route('/admin',methods=['GET','POST'])
 def login():
@@ -103,10 +103,10 @@ def login():
 
 
 
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Admin Panel  Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+#! <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Admin Panel  Start >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-# >>>>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Login Start <<<<<<<<<<<<<<<<<<<<<<<
+#? >>>>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Login Start <<<<<<<<<<<<<<<<<<<<<<<
 
 # ----------------Admin Panel Login Add Web page ----------------------
 
@@ -155,7 +155,7 @@ def logout():
 
 
 
-# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Main Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#? >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Main Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # ---------------------Admin Panel Main Web page ------------------------
 
@@ -240,7 +240,7 @@ def concactdelete(id):
 
 
 
-# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Home Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#? >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel Home Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # ----------------Admin Panel Home Web page ----------------------
 @app.route('/admin/home',methods=['GET','POST'])
@@ -277,12 +277,15 @@ def homedelete(id):
 def edithome(id):
     home = Homein.query.get_or_404(id)
     if request.method == 'POST':
-       file = request.files['file']
-       print(file)
-       filename = secure_filename(file.filename)
-       file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+       if (request.form.get('noimg')=="true"):
+            home.infoimg = home.infoimg
+       else:
+            file = request.files['file']
+            print(file)
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            home.infoimg = filename
        home.info = request.form.get('HomeTitleText')
-       home.infoimg = filename
        db.session.commit()
        return redirect(url_for("adminmain"))
     return render_template('admin/edithome.html',homes=home)
@@ -307,7 +310,7 @@ def bacgroundimg():
     
     return render_template('admin/adminbacground.html')
 
-# ---------------------Admin Panel Project Delete Web page -------------------
+# ---------------------Admin Panel Bacgroundimg Delete Web page -------------------
 @app.route('/admin/backgroundimg-delete/<int:id>', methods=['GET','POST'])
 @login_required
 def backgoundelete(id):
@@ -320,7 +323,7 @@ def backgoundelete(id):
 
 
 
-# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel MyProject Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#? >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel MyProject Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # ---------------------Admin Panel MyProject Web page ----------------
 @app.route('/admin/pro',methods=['GET','POST'])
@@ -373,28 +376,32 @@ def projectdelete(id):
 @login_required
 def editpro(id):
     proce=Projectin.query.get_or_404(id)
-    if request.method=='POST':
-        file = request.files['pfile']
-        print(file)
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        proce.protime=request.form.get('cardTime')
-        proce.protitle=request.form.get('cardTitle')
-        proce.prosortcut=request.form.get('cardText')
+    if request.method == 'POST':
+        if (request.form.get('noimg')=="true"):
+            proce.proimg = proce.proimg
+        else:
+            file = request.files['pfile']
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            proce.proimg = filename
+        proce.protime = request.form.get('cardTime')
+        proce.protitle = request.form.get('cardTitle')
+        proce.prosortcut = request.form.get('cardText')
         proce.projareya = request.form.get('projareya')
-        proce.cardTextadd=request.form.get('cardTextadd')
+        proce.cardTextadd = request.form.get('cardTextadd')
         proce.projareya2 = request.form.get('projareya2')
         proce.projtitle = request.form.get('projtitle')
-        proce.listp =request.form.get('listp')
-        proce.listp1 =request.form.get('listp1')
-        proce.listp2 =request.form.get('listp2')
-        proce.listp3 =request.form.get('listp3')
-        proce.listp4 =request.form.get('listp4')
-        proce.listp5 =request.form.get('listp5')
-        proce.listp6 =request.form.get('listp6')
-        proce.listp7 =request.form.get('listp7')
+        proce.listp = request.form.get('listp')
+        proce.listp1 = request.form.get('listp1')
+        proce.listp2 = request.form.get('listp2')
+        proce.listp3 = request.form.get('listp3')
+        proce.listp4 = request.form.get('listp4')
+        proce.listp5 = request.form.get('listp5')
+        proce.listp6 = request.form.get('listp6')
+        proce.listp7 = request.form.get('listp7')
         proce.projareya3 = request.form.get('projareya3')
-        proce.proimg=filename
+        
+        
         db.session.commit()
         return redirect(url_for("adminmain"))
     
@@ -406,7 +413,7 @@ def editpro(id):
 
 
 
-# >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel About Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+#? >>>>>>>>>>>>>>>>>>>>>>>>> Admin Panel About Start <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 # ---------------------Admin Panel About Web page ---------------
 
@@ -456,10 +463,14 @@ def aboutdelete(id):
 def editabout(id):
     aboute=Aboutin.query.get_or_404(id)
     if request.method == 'POST':
-        file = request.files.get('afile')
-        print(file)
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        if (request.form.get('noimg')=="true"):
+            aboute.aboutinfoimg=aboute.aboutinfoimg
+        else:
+            file = request.files.get('afile')
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            aboute.aboutinfoimg=filename
+        
         aboute.aboutinfo1=request.form.get('info1')
         aboute.aboutinfo2=request.form.get('info2')
         aboute.disgen1=request.form.get('disgen1')
@@ -472,7 +483,7 @@ def editabout(id):
         aboute.disgen4interest=request.form.get('disgen4interest')
         aboute.disgen5=request.form.get('disgen5')
         aboute.disgen5interest=request.form.get('disgen5interest')
-        aboute.aboutinfoimg=filename
+        
         db.session.commit()
         return redirect(url_for("adminmain"))
     return render_template('admin/editabout.html',aboute=aboute)

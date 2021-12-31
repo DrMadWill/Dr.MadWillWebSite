@@ -129,7 +129,6 @@ html{
 
 .pr-link:hover{
     text-decoration: none;
-    
     color: var(--second-clr) !important;
     transition: all 0.3s;
 }
