@@ -40,11 +40,13 @@
         position:fixed;
         top: 0;
         z-index: 7;
-        box-shadow:0 3px 7px var(--shadow);
+        background-color: transparent;
+        box-shadow:0 0 0 0 blue;
     }
 
     @media (max-width:768px) {
         header{
+
             background-color: var(--first-clr) !important;
             box-shadow:0 3px 7px var(--shadow) !important;
         }
@@ -56,6 +58,7 @@
         #lost .header-link:hover,#lost1 .header-link:hover{
             color: var(--second-clr) !important;
         }
+
 
     }
     
@@ -157,9 +160,11 @@
         right: 0.5rem;
         font-size: 2.6rem;
         cursor: pointer;
+        border: 0;
 
     }
-    #bar-icon a{
+    #bar-icon button{
+        border: 0;
         color:var(--trid-clr);
     }
 
